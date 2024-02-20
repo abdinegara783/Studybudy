@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abdi</title>
+  </head>
+  <body>
+    {% extends 'main.html' %} 
+    {% block content %}
+    <style>
+        .home-container{
+            display: grid;
+            grid-template-columns: 1fr 3fr 1fr;
+        }
+    </style>
+
+    <div class="home-container">
+      <div>
+       {% include 'base/topics_component.html' %}
+      </div>
+
+      <div>
+        <h5>{{room_count}} room available</h5>
+        <a href="{% url 'create-room' %}">Create Room</a>
+        {% include 'base/feed_components.html' %}
+      </div>
+
+      <div>
+        {% include 'base/activity_component.html' %}
+      </div>
+    </div>
+
+    {% endblock content%}
+  </body>
+</html>
